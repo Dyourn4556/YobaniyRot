@@ -1,5 +1,5 @@
 import test from "@playwright/test";
-import { HomePage } from "../src/PageObject/pages/HomePage";
+import { HomePage } from "../src/pageObject/pages/HomePage";
 import { SignupPage } from "../src/pageObject/pages/SignupPage";
 import { getFakeEmail, getFakeFirstName, getFakeLastName, getFakePassword } from "../src/helper/FakeUserData";
 import { ListToDoPage } from "../src/PageObject/pages/ListToDoPage";
