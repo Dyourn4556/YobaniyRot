@@ -22,7 +22,6 @@ jobs:
         continue-on-error: true
         with:
           ref: gh-pages
-          repository: your-public-repository
           path: gh-pages
 
       - name: Allure Report action from marketplace
@@ -36,12 +35,7 @@ jobs:
 
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
-        with:
-          emptyCommits: true
-          keepFiles: false
-          forceOrphan: false
-          tagOverwrite: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
