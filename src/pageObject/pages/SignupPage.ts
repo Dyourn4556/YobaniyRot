@@ -1,35 +1,43 @@
-import { expect } from '@playwright/test';
-import { BasePage } from './BasePage';
-import { SignupPageLocators } from '../locators/SignupPageLocators';
+import { expect } from "@playwright/test";
+import { BasePage } from "./BasePage";
+import { SignupPageLocators } from "../locators/SignupPageLocators";
 
+export class SignupPage extends BasePage {
+  async assertHeaderIsVisible(): Promise<void> {
+    await expect(
+      this.page.locator(SignupPageLocators.pageHeaderXpath),
+    ).toBeVisible();
+  }
 
-export class SignupPage extends BasePage{
+  async fillFirstName(firstName: string): Promise<void> {
+    await this.page
+      .locator(SignupPageLocators.firstNameFieldXpath)
+      .fill(firstName);
+  }
 
-    async assertHeaderIsVisible(): Promise<void> {
-        expect(this.page.locator(SignupPageLocators.pageHeaderXpath)).toBeVisible;
-    }
+  async fillLastName(lastName: string): Promise<void> {
+    await this.page
+      .locator(SignupPageLocators.lastNameFieldXpath)
+      .fill(lastName);
+  }
 
-    async fillFirstName(firstName: string): Promise<void> {
-        await this.page.locator(SignupPageLocators.firstNameFieldXpath).fill(firstName);
-    }
+  async fillEmail(email: string): Promise<void> {
+    await this.page.locator(SignupPageLocators.emailFieldXpath).fill(email);
+  }
 
-    async fillLastName(lastName: string): Promise<void> {
-        await this.page.locator(SignupPageLocators.lastNameFieldXpath).fill(lastName);
-    }
+  async fillPassword(password: string): Promise<void> {
+    await this.page
+      .locator(SignupPageLocators.passwordFieldXpath)
+      .fill(password);
+  }
 
-    async fillEmail(email: string): Promise<void> {
-        await this.page.locator(SignupPageLocators.emailFieldXpath).fill(email);
-    }
+  async confirmPassword(confirmPassword: string): Promise<void> {
+    await this.page
+      .locator(SignupPageLocators.confirmPasswordFieldXpath)
+      .fill(confirmPassword);
+  }
 
-    async fillPassword(password: string): Promise<void> {
-        await this.page.locator(SignupPageLocators.passwordFieldXpath).fill(password);
-    }
-
-    async confirmPassword(confirmPassword: string): Promise<void> {
-        await this.page.locator(SignupPageLocators.confirmPasswordFieldXpath).fill(confirmPassword);
-    }
-
-    async pressSignupButton(): Promise<void> {
-        await this.page.locator(SignupPageLocators.signupButtonXpath).click();
-    }
+  async pressSignupButton(): Promise<void> {
+    await this.page.locator(SignupPageLocators.signupButtonXpath).click();
+  }
 }

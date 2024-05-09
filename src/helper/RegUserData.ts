@@ -1,8 +1,3 @@
-export class RegUserData {
+export const regEmail = "1234@gmail.com";
 
-    static readonly regFirstName: string = "Dyourn";
-    static readonly regLastName: string = "Lavinskiy";
-    static readonly regEmail: string = "1234@gmail.com";
-    static readonly regPassword: string = "1234test";
-
-}
+export const regPassword = "1234test";

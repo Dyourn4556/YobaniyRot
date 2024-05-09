@@ -1,5 +1,3 @@
 export class BaseUrl {
-
-    static readonly QACartUrl: string = "https://todo.qacart.com";
-
+  static readonly QACartUrl = "https://todo.qacart.com";
 }

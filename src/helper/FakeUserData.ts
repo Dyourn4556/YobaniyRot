@@ -1,21 +1,21 @@
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
 
-    export function getFakeFirstName(): string {
-        return faker.person.firstName();
-    }
+export function getFakeFirstName(): string {
+  return faker.person.firstName();
+}
 
-    export function getFakeLastName(): string {
-        return faker.person.lastName();
-    }
+export function getFakeLastName(): string {
+  return faker.person.lastName();
+}
 
-    export function getFakeEmail(): string {
-        return faker.internet.email();
-    }
+export function getFakeEmail(): string {
+  return faker.internet.email();
+}
 
-    export function getFakePassword(): string {
-        return faker.internet.password();
-    }
+export function getFakePassword(): string {
+  return faker.internet.password();
+}
 
-    export function getFakeToDo(): string {
-        return faker.lorem.slug();
-    }
+export function getFakeToDo(): string {
+  return faker.lorem.slug();
+}

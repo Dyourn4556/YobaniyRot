@@ -1,44 +1,44 @@
-import { expect } from '@playwright/test';
-import { BasePage } from './BasePage';
-import { HomePageLocators } from '../locators/HomePageLocators';
-import { BaseUrl } from '../../resources/BaseUrl';
+import { expect } from "@playwright/test";
+import { BasePage } from "./BasePage";
+import { HomePageLocators } from "../locators/HomePageLocators";
+import { BaseUrl } from "../../resources/BaseUrl";
 
+export class HomePage extends BasePage {
+  async goToHomePage(): Promise<void> {
+    await this.page.goto(BaseUrl.QACartUrl);
+  }
 
-export class HomePage extends BasePage{
+  async clickHomeButton(): Promise<void> {
+    await this.page.locator(HomePageLocators.homeButtonXpath).click();
+  }
 
-    async goToHomePage(): Promise<void> {
-        await this.page.goto(BaseUrl.QACartUrl);
-    }
+  async assertSiteIconIsVisible(): Promise<void> {
+    expect(this.page.locator(HomePageLocators.qaCartImageXpath)).toBeVisible;
+  }
 
-    async clickHomeButton(): Promise<void> {
-        await this.page.locator(HomePageLocators.homeButtonXpath).click();
-    }
+  async clickLoginButton(): Promise<void> {
+    await this.page.locator(HomePageLocators.loginButtonXpath).click();
+  }
 
-    async assertSiteIconIsVisible(): Promise<void> {
-        expect(this.page.locator(HomePageLocators.qaCartImageXpath)).toBeVisible;
-    }
+  async clickSignButton(): Promise<void> {
+    await this.page.locator(HomePageLocators.signInButtonXpath).click();
+  }
 
-    async clickLoginButton(): Promise<void> {
-        await this.page.locator(HomePageLocators.loginButtonXpath).click();
-    }
+  async fillEmail(email: string): Promise<void> {
+    await this.page.locator(HomePageLocators.emailFieldXpath).fill(email);
+  }
 
-    async clickSignButton(): Promise<void> {
-        await this.page.locator(HomePageLocators.signinButtonXpath).click();
-    }
+  async fillPassword(password: string): Promise<void> {
+    await this.page.locator(HomePageLocators.passwordFieldXpath).fill(password);
+  }
 
-    async fillEmail(email: string): Promise<void> {
-        await this.page.locator(HomePageLocators.emailFieldXpath).fill(email);
-    }
+  async clickLoginUserButton(): Promise<void> {
+    await this.page.locator(HomePageLocators.loginUserButtonXpath).click();
+  }
 
-    async fillPassword(password: string): Promise<void> {
-        await this.page.locator(HomePageLocators.passwordFieldXpath).fill(password);
-    }
-
-    async clickLoginUserButton(): Promise<void> {
-        await this.page.locator(HomePageLocators.loginUserButtonXpath).click();
-    }
-
-    async clickCreateNewAccount(): Promise<void> {
-        await this.page.locator(HomePageLocators.createNewAccountButtonXpath).click();
-    }
+  async clickCreateNewAccount(): Promise<void> {
+    await this.page
+      .locator(HomePageLocators.createNewAccountButtonXpath)
+      .click();
+  }
 }
