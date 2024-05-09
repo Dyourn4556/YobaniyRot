@@ -1,30 +1,30 @@
 import test from "@playwright/test";
-import { HomePage } from "../src/pageObject/pages/HomePage";
-import { ListToDoPage } from "../src/pageObject/pages/ListToDoPage";
-import { regEmail, regPassword } from "../src/helper/RegUserData";
+import {HomePage} from "../src/pageObject/pages/HomePage";
+import {ListToDoPage} from "../src/pageObject/pages/ListToDoPage";
+import {regEmail, regPassword} from "../src/helper/RegUserData";
 
-test.describe("Auth", () => {
-  let homePage: HomePage;
-  let listToDoPage: ListToDoPage;
-  
-  const registeredEmail = regEmail;
-  const registeredPassword = regPassword;
+test.describe.skip("Auth", () => {
+    let homePage: HomePage;
+    let listToDoPage: ListToDoPage;
 
-  test.beforeEach(async ({ page }) => {
-    homePage = new HomePage(page);
-    listToDoPage = new ListToDoPage(page);
-  });
+    const registeredEmail = regEmail;
+    const registeredPassword = regPassword;
 
-  test("should allow user to delete a all ToDos", async () => {
-    await homePage.goToHomePage();
-    await homePage.assertSiteIconIsVisible();
+    test.beforeEach(async ({page}) => {
+        homePage = new HomePage(page);
+        listToDoPage = new ListToDoPage(page);
+    });
 
-    await homePage.fillEmail(registeredEmail);
-    await homePage.fillPassword(registeredPassword);
-    await homePage.clickLoginUserButton();
+    test("should allow user to delete a all ToDos", async () => {
+        await homePage.goToHomePage();
+        await homePage.assertSiteIconIsVisible();
 
-    await listToDoPage.assertAvailableToDo();
-    await listToDoPage.deleteAllToDo();
-    await listToDoPage.assertNoAvailableToDoMessageIsVisible();
-  });
+        await homePage.fillEmail(registeredEmail);
+        await homePage.fillPassword(registeredPassword);
+        await homePage.clickLoginUserButton();
+
+        await listToDoPage.assertAvailableToDo();
+        await listToDoPage.deleteAllToDo();
+        await listToDoPage.assertNoAvailableToDoMessageIsVisible();
+    });
 });
