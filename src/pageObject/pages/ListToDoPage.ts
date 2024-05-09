@@ -4,8 +4,9 @@ import { ListToDoPageLocators } from "../locators/ListToDoPageLocators";
 
 export class ListToDoPage extends BasePage {
   async assertHeaderOfToDoListIsVisible(): Promise<void> {
-    await expect(this.page.locator(ListToDoPageLocators.listToDoPageHeaderXpath))
-      .toBeVisible();
+    await expect(
+      this.page.locator(ListToDoPageLocators.listToDoPageHeaderXpath),
+    ).toBeVisible();
   }
 
   async clickLogoutButton(): Promise<void> {
@@ -45,7 +46,9 @@ export class ListToDoPage extends BasePage {
   }
 
   async assertNoAvailableToDoMessageIsVisible(): Promise<void> {
-    await expect(this.page.locator(ListToDoPageLocators.noAvailableToDo)).toBeVisible();
+    await expect(
+      this.page.locator(ListToDoPageLocators.noAvailableToDo),
+    ).toBeVisible();
   }
 
   async assertAvailableToDo(): Promise<void> {
@@ -53,7 +56,7 @@ export class ListToDoPage extends BasePage {
       .locator(ListToDoPageLocators.availableToDoXpath)
       .last();
     await listOfToDo.waitFor({ state: "visible" });
-    const count = await listOfToDo.count();
+    // const count = await listOfToDo.count();
     // if (count === 0) {
     //     console.log("Немає доступних елементів ToDo на сторінці");
     // } else {
@@ -65,7 +68,8 @@ export class ListToDoPage extends BasePage {
 
   async assertHeaderOfCreateNewToDoModalIsVisible(): Promise<void> {
     await expect(
-      this.page.locator(ListToDoPageLocators.createNewToDoModalHeaderXpath)).toBeVisible();
+      this.page.locator(ListToDoPageLocators.createNewToDoModalHeaderXpath),
+    ).toBeVisible();
   }
 
   async typeNewToDo(newToDo: string): Promise<void> {
