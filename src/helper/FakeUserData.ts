@@ -15,3 +15,7 @@ import { faker } from '@faker-js/faker';
     export function getFakePassword(): string {
         return faker.internet.password();
     }
+
+    export function getFakeToDo(): string {
+        return faker.lorem.slug();
+    }

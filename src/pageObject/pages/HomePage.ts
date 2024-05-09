@@ -18,7 +18,7 @@ export class HomePage extends BasePage{
         expect(this.page.locator(HomePageLocators.qaCartImageXpath)).toBeVisible;
     }
 
-    async goToLoginPage(): Promise<void> {
+    async clickLoginButton(): Promise<void> {
         await this.page.locator(HomePageLocators.loginButtonXpath).click();
     }
 
@@ -26,4 +26,19 @@ export class HomePage extends BasePage{
         await this.page.locator(HomePageLocators.signinButtonXpath).click();
     }
 
+    async fillEmail(email: string): Promise<void> {
+        await this.page.locator(HomePageLocators.emailFieldXpath).fill(email);
+    }
+
+    async fillPassword(password: string): Promise<void> {
+        await this.page.locator(HomePageLocators.passwordFieldXpath).fill(password);
+    }
+
+    async clickLoginUserButton(): Promise<void> {
+        await this.page.locator(HomePageLocators.loginUserButtonXpath).click();
+    }
+
+    async clickCreateNewAccount(): Promise<void> {
+        await this.page.locator(HomePageLocators.createNewAccountButtonXpath).click();
+    }
 }

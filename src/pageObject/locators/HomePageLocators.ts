@@ -6,4 +6,8 @@ export class HomePageLocators {
 
     static readonly qaCartImageXpath: string = "//img[@class ='sc-gicCDI bkxBbX']";
 
+    static readonly emailFieldXpath: string = "//input[@id='email']";
+    static readonly passwordFieldXpath: string = "//input[@id='password']";
+    static readonly loginUserButtonXpath: string = "//span[@class='MuiButton-label']";
+    static readonly createNewAccountButtonXpath: string = "//h2[@data-testid='signup']";
 }
